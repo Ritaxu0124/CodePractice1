@@ -1,6 +1,8 @@
 package DataStructure.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author xu
@@ -8,8 +10,25 @@ import java.util.Arrays;
  */
 public class RadixSort {
     public static void main(String[] args) {
-        int[] arr = {53, 3, 542, 748, 14, 214};
+//        int[] arr = {53, 3, 542, 748, 14, 214};
+//        radixSort(arr);
+
+        int[] arr = new int[8000000];
+        for (int i = 0; i < 8000000; i++) {
+            arr[i] = (int) (Math.random() * 1500000);    //生成1-1500000之间的随机数
+        }
+
+        Date date1 = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
+        String date1Str = simpleDateFormat.format(date1);   //将当前时间格式化
+        System.out.println("排序前的时间为：" + date1Str);
+
+        int[] temp = new int[arr.length];   //需要额外的数组空间
         radixSort(arr);
+
+        Date date2 = new Date();
+        String date2Str = simpleDateFormat.format(date2);   //将当前时间格式化
+        System.out.println("排序后的时间为：" + date2Str);
     }
 
     public static void radixSort(int[] arr) {
@@ -53,9 +72,9 @@ public class RadixSort {
                     bucketElementCount[k] = 0;
                 }
             }
-            System.out.println("第" + (i + 1) + "轮排序后的结果：" + Arrays.toString(arr));
+//            System.out.println("第" + (i + 1) + "轮排序后的结果：" + Arrays.toString(arr));
         }
-        System.out.println("####################");
+//        System.out.println("####################");
 
 
         /*
