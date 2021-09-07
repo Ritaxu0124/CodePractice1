@@ -3,6 +3,10 @@ package DataStructure.search;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author xu
+ * 线性查找
+ */
 public class SeqSearch {
     public static void main(String[] args) {
         int[] arr = {1, 9, 11, -1, 34, 89};
