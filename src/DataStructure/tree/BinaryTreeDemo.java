@@ -1,5 +1,7 @@
 package DataStructure.tree;
 
+import java.util.HashMap;
+
 /**
  * @author Rita
  * 二叉树遍历（递归实现）
@@ -30,6 +32,36 @@ public class BinaryTreeDemo {
         //后序遍历
         System.out.println("后序遍历");
         binaryTree.postOrder();
+
+        //前序遍历查找
+        System.out.println("测试前序遍历查找：");
+        HeroNode resNode = binaryTree.preOrderSearch(5);
+        if (resNode != null){
+            System.out.printf("找到，信息为：编号为%d，姓名为%s", resNode.getNo(), resNode.getName());
+            System.out.println();
+        }else {
+            System.out.println("未找到！");
+        }
+
+        //中序遍历查找
+        System.out.println("测试中序遍历查找：");
+        resNode = binaryTree.infixOrderSearch(5);
+        if (resNode != null){
+            System.out.printf("找到，信息为：编号为%d，姓名为%s", resNode.getNo(), resNode.getName());
+            System.out.println();
+        }else {
+            System.out.println("未找到！");
+        }
+
+        //后序遍历查找
+        System.out.println("测试后序遍历查找：");
+        resNode = binaryTree.postOrderSearch(5);
+        if (resNode != null){
+            System.out.printf("找到，信息为：编号为%d，姓名为%s", resNode.getNo(), resNode.getName());
+            System.out.println();
+        }else {
+            System.out.println("未找到！");
+        }
     }
 
 }
@@ -199,6 +231,7 @@ class HeroNode {
      * @return 如果找到则返回node，如果没找到返回null
      */
     public HeroNode preOrderSearch(int no) {
+        System.out.println("前序遍历查找的次数~~~");
         //先判断当前父节点
         if (this.no == no) {
             return this;
@@ -226,7 +259,6 @@ class HeroNode {
      * @return 如果找到则返回node，如果没找到返回null
      */
     public HeroNode infixOrderSearch(int no) {
-
         HeroNode resNode = null;
         //先判断左节点是否为空，若不为空，则左递归前序查找
         //如果左递归前序查找找到节点，则返回
@@ -236,6 +268,7 @@ class HeroNode {
         if (resNode != null) {
             return resNode;
         }
+        System.out.println("中序遍历查找的次数~~~");
         //判断当前父节点
         if (this.no == no) {
             return this;
@@ -254,7 +287,6 @@ class HeroNode {
      * @return 如果找到则返回node，如果没找到返回null
      */
     public HeroNode postOrderSearch(int no) {
-
         HeroNode resNode = null;
         //先判断左节点是否为空，若不为空，则左递归前序查找
         //如果左递归前序查找找到节点，则返回
@@ -274,6 +306,7 @@ class HeroNode {
             return resNode;
         }
 
+        System.out.println("后序遍历查找的次数~~~");
         //判断当前父节点
         if (this.no == no) {
             resNode = this;

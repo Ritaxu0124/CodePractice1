@@ -11,7 +11,6 @@ public class InsertSort {
     public static void main(String[] args) {
 //        int[] arr = {101, 34, 119, 1};
 //        insertSort(arr);
-
         int[] arr = new int[80000];
         for (int i = 0; i < 80000; i++){
             arr[i] =(int) (Math.random() * 1500000);    //生成1-1500000之间的随机数
